@@ -1,10 +1,89 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>Contact</title>
+    <meta name="viewport" content="with-device-width",
+    initial-scale="1.0">
+    <title>FlowFocus</title>
+   
+
 </head>
-<body>
-<h1>TEST</h1>
-<h2>Contact Page</h2>
+<body style="background-color: azure;"> 
+
+    <h2 style="color: #999999" What are you looking for? </h2>
+    <table bgcolor="black">
+     <tr bgcolor="white"> 
+    
+    <th>Life Style </th>
+    <th>Music </th>
+    <th> Sport </th>
+    <th> Coding </th>
+    <th>Design</th>
+    <th>Health</th>
+    <th>Travel</th>
+    </tr>
+    </table>
+
+    <img src="#">
+
+    <section class="header2">
+        <nav>
+            <a href="index.html"> </a>
+        
+        <div class="nav-links" id="navLinks">
+            
+            <i class="fa fa-times"  onclick="hideMenu()"></i>
+            <ul>
+                <li><a href="index.html.html">HOME</a> </li> 
+                
+                <li><a href="login.html.html">ABOUT</a> </li>
+                <li><a href="login.html.html.html">BLOG</a> </li>
+                <li><a href="contact.html.html">CONTACT</a> </li>
+
+            </ul>
+        </div>
+        <i class="fa fa-bars" onclick="showMenu()"></i>
+    </nav>
+
+    <i class="fa fa-bars" onclick="showMenu()"></i>
+</nav>
+
+
+</div>
+</section>
+
+<section class="about-us">
+    <div class="row">
+        <div class="about-col">
+            
+
+             <!-- --------FOOTER-------- -->
+
+     <section class="footer">
+        <h4>About Us</h4>
+        <p>enjoy the latest news.</p>
+
+           <div class="icon">
+            <i class="fa fa-facebook"></i>
+            <i class="fa fa-close"></i>
+            <i class="fa fa-instagram"></i>
+            <i class="fa fa-linkedin"></i>
+
+           </div>
+     </section>
+<!------ JAVACRIPT TOGGLE MENU  --------->
+
+<script>
+    var navLinks = document.getElementById("navLinks");
+
+    function showMenu() {
+        navLinks.style.right = "0";
+    }
+
+    
+    function hideMenu() {
+        navLinks.style.right = "-270px";
+    }
+</script>
+
 </body>
 </html>
