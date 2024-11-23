@@ -71,7 +71,7 @@ nav{
 .LoginForm{
     display: block;
     margin-left: 44.5%;
-    
+
 }
 #T3{
     text-align: center;
@@ -121,7 +121,7 @@ nav{
 .pjesareg {
     text-align: center;
     padding: 40px 20px;
-    background-color: #fefefe;
+    background-color: #34495e;
     border-top: 2px solid #ddd;
 }
 #T6{
@@ -176,4 +176,62 @@ img {
     color: white; 
     text-decoration: none; 
     display: block; 
+}
+.sec2{
+    background-color: #34495e;
+    height: 100%;
+}
+#art1{
+    height: 50%;
+}
+#art2{
+    height: 50%;
+}
+#logform{
+    margin: 20px auto;
+    padding: 20px;
+    width: 300px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+#regform{
+    margin: 20px auto;
+    padding: 20px;
+    width: 300px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+#logintext{
+    width: 100%;
+    padding: 10px;
+    margin: 10px -10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+#regtext{
+    width: 100%;
+    padding: 10px;
+    margin: 10px -10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+#loginbutton{
+    width: 100%;
+    padding: 12px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+}
+#regbutton{
+    width: 100%;
+    padding: 12px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
 }
