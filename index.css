@@ -1,0 +1,98 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color:white;
+}
+
+header {
+    background-color: #ffffff;
+    color: antiquewhite;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+header h2 {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+section {
+    padding: 20px;
+}
+
+nav .Links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 10px;
+}
+
+nav .Links ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav .Links ul li {
+    margin-right: 20px;
+}
+
+nav .Links ul li a {
+    text-decoration: none;
+    color: #728192;
+    padding: 10px;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+nav .Links ul li a:hover {
+    background-color: #555;
+}
+
+#Home:hover {
+    background-color: #fcdec0;
+}
+
+#About:hover {
+    background-color: #d5ebfc;
+}
+
+#Contact:hover {
+    background-color: #bcb1b4;
+}
+
+#pjesalogin {
+    background-color: antiquewhite;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#pjesalogin:hover {
+    background-color: bisque;
+}
+
+.Pjesa1 {
+    text-align: center;
+}
+
+.Pjesa1 h1, .Pjesa1 h2 {
+    margin: 0;
+}
+
+.Pjesa1 h1 {
+    font-size: 3em;
+    font-weight: bold;
+}
+
+.Pjesa1 h2 {
+    font-size: 1.5em;
+    margin-top: 10px;
+}
