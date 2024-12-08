@@ -69,18 +69,45 @@ header p {
     color: #3498db;
 }
 #contactButton {
-    background-color: #3498db; 
-    color: white;
-    font-size: 0.8em;
-    padding: 15px 30px;
-    border: none;
-    border-radius: 8px;
-    text-decoration: none;
     display: inline-block;
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
 }
 
 #contactButton a {
     color: white; 
     text-decoration: none;
 }
-
+.kategorit{
+    display: flex;
+}
+#commentButton{
+    margin-top: 1%;
+    display: inline-block;
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+}
+#commentButton a {
+    color: white; 
+    text-decoration: none;
+}
+#art5{
+    padding-left: 1%;
+}
+#art6{
+    padding-left: 15%;
+}

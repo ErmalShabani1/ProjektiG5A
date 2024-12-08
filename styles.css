@@ -357,15 +357,25 @@ table{
     margin: auto;
 }
 #art3{
-    width: 50%;
+    width: 49.5%;
     height: 50%;
     text-align: center;
+    margin-left: 0.3%;
+    margin-top: 0.3%;
+    border: 2px solid black; /* Normal borders on all sides */
+    border-radius: 5px;
+    padding: 0; /* No space inside the border */
+   
 }
 #art4{
-    width: 50%;
+    width: 49.5%;
     height: 50%;
-    margin-left: 49.5%;
     text-align: center;
+    margin-left: 50%;  
+    margin-top: 0.3%; 
+    border: 2px solid black; /* Normal borders on all sides */
+    border-radius: 5px;
+    padding: 0; /* No space inside the border */
 }
 #image1{
     width: 98%;
