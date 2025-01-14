@@ -111,3 +111,7 @@ header p {
 #art6{
     padding-left: 15%;
 }
+#fblogo , #iglogo , #lilogo{
+    width: 4%;
+    height: 4%;
+}

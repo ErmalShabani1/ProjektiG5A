@@ -97,7 +97,7 @@ nav{
     margin-top: 2%;
 }
 #loginheader {
-    background-color: #287630;
+    background-color: #007BFF;
     color: white;
     padding: 20px 0;
     text-align: center;
@@ -121,7 +121,7 @@ nav{
 .pjesareg {
     text-align: center;
     padding: 40px 20px;
-    background-color: #34495e;
+    background-color: white;
     border-top: 2px solid #ddd;
 }
 #T6{
@@ -157,7 +157,7 @@ img {
 
 #HomeButton {
     margin-right: 90%;
-    background-color: #4CAF50;
+    background-color: #34495e;
     color: white; 
     padding: 10px 20px; 
     text-align: center; 
@@ -169,7 +169,7 @@ img {
 }
 
 #HomeButton:hover {
-    background-color: #45a049; 
+    background-color:aqua; 
 }
 
 #HomeButton a {
@@ -200,7 +200,7 @@ img {
     margin: 20px auto;
     padding: 20px;
     width: 300px;
-    background-color: #f9f9f9;
+    background-color: #34495e;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     text-align: center;
@@ -222,7 +222,7 @@ img {
 #loginbutton{
     width: 100%;
     padding: 12px;
-    background-color: #4CAF50;
+    background-color: #34495e;
     color: white;
     border: none;
     border-radius: 4px;
@@ -230,7 +230,7 @@ img {
 #regbutton{
     width: 100%;
     padding: 12px;
-    background-color: #4CAF50;
+    background-color: #34495e;
     color: white;
     border: none;
     border-radius: 4px;
@@ -266,90 +266,7 @@ table{
     text-decoration: none;
     font-size: 20px;
  }
-/* Header */
-#head1 {
-    background: #007BFF;
-    color: white;
-    text-align: center;
-    padding: 1rem 0;
-    display: flex;
-}
 
-#sec3{
-    margin: 2rem auto;
-    padding: 1.5rem;
-    max-width: 800px;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-} 
-#sec4{
-    margin: 2rem auto;
-    padding: 1.5rem;
-    max-width: 800px;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    
-} 
-#sec5{
-    margin: 2rem auto;
-    padding: 1.5rem;
-    max-width: 800px;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-#T9{
-    margin: 0;
-    text-align: center;
-    flex-grow: 1;
-}
-#T10{
-    color: #007BFF;
-    margin-bottom: 1rem;
-}
-#T11{
-    color: #555;
-}
-#T12{
-    color: #007BFF;
-    margin-bottom: 1rem;
-}
-#T13{
-    color: #555;
-}
-#T14{
-    color: #007BFF;
-    margin-bottom: 1rem;
-}
-#T15{
-    color: #555;
-}
-#AboutUsButton {
-    display: inline-block;
-    background-color: #007BFF;
-    color: white;
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-}
-
-#AboutUsButton:hover {
-    background-color: #0056b3;
-}
-
-#AboutUsButton a {
-    color: white;
-    text-decoration: none;
-    display: block;
-    width: 100%;
-    height: 100%;
-}
 .sec6{
     display: block;
     height: 100%;
@@ -362,9 +279,9 @@ table{
     text-align: center;
     margin-left: 0.3%;
     margin-top: 0.3%;
-    border: 2px solid black; /* Normal borders on all sides */
+    border: 2px solid black; 
     border-radius: 5px;
-    padding: 0; /* No space inside the border */
+    padding: 0;
    
 }
 #art4{
@@ -373,9 +290,9 @@ table{
     text-align: center;
     margin-left: 50%;  
     margin-top: 0.3%; 
-    border: 2px solid black; /* Normal borders on all sides */
+    border: 2px solid black; 
     border-radius: 5px;
-    padding: 0; /* No space inside the border */
+    padding: 0; 
 }
 #image1{
     width: 98%;
@@ -386,4 +303,8 @@ table{
 #image2{
     width: 98%;
     height: 50%;
+}
+#fblogo , #iglogo , #lilogo{
+    width: 4%;
+    height: 4%;
 }
