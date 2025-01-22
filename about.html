@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us</title>
-    <link rel="stylesheet" href="about.css"> <!-- External file for body -->
+    <link rel="stylesheet" href="about.css"> 
 </head>
 <body>
     <header id="head1">
@@ -24,9 +24,14 @@
             <h2 id="T14">Test</h2>
             <p id="T15">Paragrafi i tret per testimin e faqes se about.html.</p>
         </section>
-    </main>
+    </main><section class="slider-container">
+        <label for="slider" class="slider-label">Adjust Value</label>
+        <input type="range" id="slider" class="slider" min="0" max="100" value="50">
+        <p class="slider-value">Value: <span id="sliderValue">50</span></p>
+    </section>    
     <footer>
         <p id="T16">© 2024 Our Company. All rights reserved.</p>
     </footer>
 </body>
+<script src="about.js"></script>
 </html>
