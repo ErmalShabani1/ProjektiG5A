@@ -51,6 +51,8 @@ $conn->close();
                 <button id="contactButton"><a href="login.php?logout=true">Logout</a></button>
                 <br>
                 <button id="contactButton"><a href="profile.php">Profile</a></button>
+                <br>
+                <button id="contactButton"><a href="adminlogin.php">AdminLogin</a></button>
         </article>
         <article id="art6">
         <div id="lajmi1"><a href="faqja1.php" class="faqet"><img src="image3.jpg" alt="Image1" id="fotolajmi1"><h6 id="titujt">Granit Xhaka nenshkruan me Bayer Leverkusen</h6></a></div>
