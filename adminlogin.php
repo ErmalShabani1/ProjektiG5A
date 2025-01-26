@@ -33,7 +33,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $conn->close();
 }
 
-// If the user is logged in, redirect them to the dashboard
 if (isset($_SESSION['admin_id'])) {
     header("Location: dashboard.php");
     exit();

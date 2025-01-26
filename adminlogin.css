@@ -1,4 +1,3 @@
-/* General body styling */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
@@ -11,7 +10,6 @@ body {
     height: 100vh;
 }
 
-/* Login container styling */
 form {
     background-color: #ffffff;
     padding: 40px 50px;
@@ -23,7 +21,6 @@ form {
     margin-top: 20px;
 }
 
-/* Headings styling */
 h1 {
     font-size: 2.5em;
     color: #343a40;
@@ -31,7 +28,6 @@ h1 {
     margin-bottom: 10px;
 }
 
-/* Input fields styling */
 label {
     display: block;
     font-size: 1em;
@@ -60,7 +56,6 @@ input[type="password"]:focus {
     outline: none;
 }
 
-/* Button styling */
 button {
     background-color: #007bff;
     color: white;
@@ -77,13 +72,11 @@ button:hover {
     background-color: #0056b3;
 }
 
-/* Error message styling */
 p {
     color: #e74c3c;
     font-size: 1em;
 }
 
-/* Button to return to index.php */
 #returnButton {
     background-color: #0056b3;
     color: white;
@@ -106,7 +99,6 @@ p {
     background-color: #7096e7;
 }
 
-/* Media queries for responsiveness */
 @media (max-width: 768px) {
     form {
         padding: 30px 20px;

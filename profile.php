@@ -1,6 +1,11 @@
 <?php
 include_once('connect.php');
 
+// Check if a session is already active
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
 if (!isset($_SESSION['id'])) {
     header("Location: login.php");
     exit();
@@ -44,7 +49,6 @@ $conn->close();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile</title>
     <link rel="stylesheet" type="text/css" href="profile.css">
-    <!-- Add the following link for the slider library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
 </head>
@@ -71,7 +75,6 @@ $conn->close();
         <p>No pages saved yet.</p>
     <?php endif; ?>
 
-    <!-- Add the following script tags for the slider library -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
     <script>

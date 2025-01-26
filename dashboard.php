@@ -1,7 +1,6 @@
 <?php
 include_once('connect.php');
 
-// Check if a session is already active
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
@@ -18,7 +17,20 @@ if (isset($_GET['logout'])) {
     exit();
 }
 
-$query = "SELECT page_name, COUNT(user_id) AS user_count FROM saved_pages GROUP BY page_name";
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_page'])) {
+    $page_name_to_delete = $_POST['page_name'];
+
+    $query = "DELETE FROM saved_pages WHERE page_name = ?";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("s", $page_name_to_delete);
+    $stmt->execute();
+    $stmt->close();
+    
+    header("Location: dashboard.php");
+    exit();
+}
+
+$query = "SELECT page_name, COUNT(user_id) AS user_count FROM saved_pages GROUP BY page_name HAVING user_count > 0";
 $result = $conn->query($query);
 
 $saved_pages_stats = [];
@@ -54,6 +66,7 @@ $conn->close();
                     <tr>
                         <th>Page Name</th>
                         <th>Users Saved</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -61,6 +74,12 @@ $conn->close();
                         <tr>
                             <td><?= htmlspecialchars($page_stat['page_name']) ?></td>
                             <td><?= htmlspecialchars($page_stat['user_count']) ?></td>
+                            <td>
+                                <form method="POST" style="display: inline;">
+                                    <input type="hidden" name="page_name" value="<?= htmlspecialchars($page_stat['page_name']) ?>">
+                                    <button type="submit" name="delete_page" style="background-color: red; color: white; border: none; padding: 5px 10px; cursor: pointer; border-radius: 5px;">Delete</button>
+                                </form>
+                            </td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>

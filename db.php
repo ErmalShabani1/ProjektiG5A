@@ -20,7 +20,7 @@ $password = $_POST['password'];
 
 $username = htmlspecialchars($username);
 $email = filter_var($email, FILTER_SANITIZE_EMAIL);
-$password = password_hash($password, PASSWORD_BCRYPT); // Hash the password for security
+$password = password_hash($password, PASSWORD_BCRYPT); 
 
 
 $stmt = $conn->prepare("INSERT INTO registration (username, email, password) VALUES (?, ?, ?)");
