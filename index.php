@@ -1,42 +1,67 @@
 <?php
+include_once('connect.php'); 
 
-$title = "Welcome to Our Website!";
-$aboutText = "This is the About Us section.";
+//Kodi posht lejon qe mos mu hap index.php nese useri nuk osht login pasiqe osht portal i lajmeve nuk e kem vendos me ba ashtu
+/*if (!isset($_SESSION['username'])) {
+    header("Location: login.php");
+
+
+    exit(); // Sigurohu qe kodi mbaron ketu
+
+} */
+
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $title; ?></title>
-    <link rel="stylesheet" href="styles.css"> 
+    <meta name="description" content="Focus Flow - Lajmet e fundit tek ne!">
+    <title>Projekti</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-   
-    <header id="head1">
-        <div id="T9">
-            <h1>Our Website</h1>
+    <header id="indexheader">
+        <div class="Pjesa1">
+            <h1 id="T1">Focus Flow</h1>
+            <h2 id="T2">Lajmet e fundit vetem tek ne</h2>
         </div>
     </header>
-
-   
-    <section id="sec3">
-        <h2 id="T10">About Us</h2>
-        <p id="T11"><?php echo $aboutText; ?></p>
-        <a href="about.php" id="AboutUsButton">Learn More</a>
+    <section class="sec1">
+        <nav>
+            <div class="Links">
+            <ul class="loginlist">
+    <?php if (isset($_SESSION['username'])): ?>
+        <li><a href="logout.php" id="pjesalogin">Logout</a></li>
+    <?php else: ?>
+        <li><a href="login.php" id="pjesalogin">Login</a></li>
+    <?php endif; ?>
+</ul>
+                <ul class="mainmenu">
+                    <li><a href="index.php" id="Home">Home</a></li>
+                    <li><a href="about.php" id="About">About</a></li>
+                    <li><a href="contact.php" id="Contact">Kategorite</a></li>
+                </ul>
+            </div>
+            <hr>
+        </nav>
     </section>
-
-   
-    <section id="sec4">
-        <h2 id="T12">Our Products</h2>
-        <p id="T13">Check out our amazing products below!</p>
+    <section class="sec6">
+        <article id="art3">
+            <a href="https://www.bbc.com/news/topics/c77jz3mdmnxt" id="indexlink1">
+                <img src="image1.jpg" id="image1">
+                <h2 id="T16">Shembulli i pare i faqes kryesore lajmi per Nasa</h2>
+            </a>
+        </article>
+        <article id="art4">
+            <a href="https://www.bbc.com/news/topics/cwmm89gpwktv" id="indexlink1">
+                <img src="image2.jpg" id="image2">
+                <h2 id="T16">Shembulli i dyte i faqes kryesore lajmi per per Notre Dame</h2>
+            </a>
+        </article>
     </section>
-
-    
-    <section id="sec5">
-        <h2 id="T14">Contact Us</h2>
-        <p id="T15">Feel free to reach out anytime.</p>
-    </section>
+    <hr>
+    <p id="T16">© 2024 Our Company. All rights reserved.</p>
+    <hr>
 </body>
 </html>

@@ -1,29 +1,91 @@
 <?php
-session_start();
+include_once('connect.php');
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-   
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-    
-    
-    $stmt = $pdo->prepare("SELECT * FROM users WHERE username = ?");
-    $stmt->execute([$username]);
-    $user = $stmt->fetch(PDO::FETCH_ASSOC);
-    
-    if ($user && $user['password'] === $password) {
-        $_SESSION['user_id'] = $user['id'];
-        $_SESSION['role'] = $user['role']; 
-        header("Location: dashboard.php");
-    } else {
-        echo "Invalid credentials!";
-    }
+if (isset($_GET['logout'])) {
+    session_destroy();
+    header("Location: login.php");
+    exit();
 }
+
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['login'])) {
+    $username = trim($_POST['username']);
+    $password = trim($_POST['password']);
+
+    // Validate input
+    if (empty($username) || empty($password)) {
+        echo "<script>alert('Ju lutem plotësoni të gjitha fushat.');</script>";
+        exit;
+    }
+
+    $stmt = $conn->prepare("SELECT id, username, password_hash FROM users WHERE username = ?");
+    $stmt->bind_param("s", $username);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($user = $result->fetch_assoc()) {
+
+        if (!empty($user['password_hash'])) {
+            if (password_verify($password, $user['password_hash'])) {
+                $_SESSION['id'] = $user['id'];
+                $_SESSION['username'] = $user['username'];
+
+
+                header("Location: index.php");
+                exit;
+            } else {
+                echo "<script>alert('Fjalëkalimi i pasaktë.');</script>";
+            }
+        } else {
+            echo "<script>alert('Fjalëkalimi nuk është i vlefshëm.');</script>";
+        }
+    } else {
+        echo "<script>alert('Ky përdorues nuk ekziston.');</script>";
+    }
+
+    $stmt->close();
+}
+
+$conn->close();
 ?>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <header id="loginheader">
+            <h1 id="T4">Mirë se erdhët!</h1>
+            <h2 id="T5">Ju lutem Log In</h2>
+            <button id="HomeButton"><a href="index.php">Home</a></button>
+            </header>
+            <div class="pjesalogin2">
+            <?php if (isset($_SESSION['username'])): ?>
+                <p>Welcome, <?php echo htmlspecialchars($_SESSION['username']); ?>!</p>
+                <a href="login.php?logout=true">Logout</a>
+            <?php else: ?>
+                <form action="login.php" method="POST" id="logform">
+                    <input type="text" name="username" placeholder="Emri" required id="logintext">
+                    <input type="password" name="password" placeholder="Fjalkalimi" required id="logintext">
+                    <input type="submit" name="login" value="Kyqu" id="loginbutton">
+                    <a href="register.php" type="button" id="SignUp">S'ke llogari? Krijo</a>
+                </form> 
+            <?php endif; ?>
 
-<form method="POST" action="">
-    <input type="text" name="username" placeholder="Username" required>
-    <input type="password" name="password" placeholder="Password" required>
-    <button type="submit">Login</button>
-</form>
+            <?php if (!empty($error)): ?>
+                <p class="error"><?php echo htmlspecialchars($error); ?></p>
+            <?php endif; ?>
+        </div>
+    <hr>
+    <div id="art2">
+    <a href="https://www.facebook.com" target="_blank"> <img src="fblogo.png" alt="img1" id="fblogo"></a>
+   <a href="https://www.instagram.com" target="_blank"> <img src="iglogo.jfif" alt="img2" id="iglogo"></a> 
+   <a href="https://www.linkedin.com" target="_blank"> <img src="lilogo.png" alt="img3" id="lilogo"></a>
+    </div>
+    <h3 id="T8">Faleminderit</h3>
+    <hr>
+</body>
+</html>
