@@ -1,13 +1,6 @@
 <?php
 include_once('connect.php');
 
-if (isset($_GET['logout'])) {
-    session_start();
-    session_destroy();
-    header("Location: login.php");
-    exit();
-}
-
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['login'])) {
     $username = trim($_POST['username']);
     $password = trim($_POST['password']);
@@ -24,7 +17,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['login'])) {
     $result = $stmt->get_result();
 
     if ($user = $result->fetch_assoc()) {
-
         if (!empty($user['password'])) {
             // Directly compare plain-text passwords
             if ($password === $user['password']) {
@@ -38,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['login'])) {
                 } else {
                     header("Location: profile.php");
                 }
-                exit;
+                exit();
             } else {
                 echo "<script>alert('Fjalëkalimi i pasaktë.');</script>";
             }
@@ -72,7 +64,7 @@ $conn->close();
     <div class="pjesalogin2">
         <?php if (isset($_SESSION['username'])): ?>
             <p>Welcome, <?php echo htmlspecialchars($_SESSION['username']); ?>!</p>
-            <a href="login.php?logout=true">Logout</a>
+            <a href="logout.php">Logout</a>
         <?php else: ?>
             <form action="login.php" method="POST" id="logform">
                 <input type="text" name="username" placeholder="Emri" required id="logintext">

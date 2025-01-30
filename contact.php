@@ -50,7 +50,7 @@ $conn->close();
                 <br>
                 <button id="contactButton"><a href="about.php">About Us</a></button>
                 <br>
-                <button id="contactButton"><a href="login.php?logout=true">Logout</a></button>
+                <button id="contactButton"><a href="logout.php">Logout</a></button>
                 <br>
                 <button id="contactButton"><a href="profile.php">Profile</a></button>
                 <br>
