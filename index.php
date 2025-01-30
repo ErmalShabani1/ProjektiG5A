@@ -9,7 +9,6 @@ include_once('connect.php');
     exit(); // Sigurohu qe kodi mbaron ketu
 
 } */
-
 ?>
 <!DOCTYPE html>
 <html lang="en">

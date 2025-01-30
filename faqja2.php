@@ -63,7 +63,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['page_name'])) {
 <footer>
 	<p id="T18">© 2024 Our Company. All rights reserved.</p>
 </footer>
-
-
 </body>
 </html>

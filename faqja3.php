@@ -67,6 +67,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['page_name'])) {
         <p id="T18">© 2024 Our Company. All rights reserved.</p>
     </footer>
     <script src="lajmet.js"></script>
-
 </body>
 </html>
