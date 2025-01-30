@@ -5,10 +5,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['login'])) {
     $username = trim($_POST['username']);
     $password = trim($_POST['password']);
 
-    // Validate input
     if (empty($username) || empty($password)) {
         echo "<script>alert('Ju lutem plotësoni të gjitha fushat.');</script>";
-        exit;
+        exit();
     }
 
     $stmt = $conn->prepare("SELECT id, username, password, role FROM users WHERE username = ?");
@@ -25,11 +24,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['login'])) {
                 $_SESSION['username'] = $user['username'];
                 $_SESSION['role'] = $user['role'];
 
-                if ($user['role'] === 'admin') {
-                    header("Location: dashboard.php");
-                } else {
-                    header("Location: profile.php");
-                }
+                // Redirect to index.php after successful login
+                header("Location: index.php");
                 exit();
             } else {
                 echo "<script>alert('Fjalëkalimi i pasaktë.');</script>";

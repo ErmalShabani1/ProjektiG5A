@@ -1,7 +1,6 @@
 <?php
 include_once('connect.php');
 
-// Check if a session is already active
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }

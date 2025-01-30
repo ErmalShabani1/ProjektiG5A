@@ -17,7 +17,6 @@ $password = $_POST['password'];
 
 $username = htmlspecialchars($username);
 $email = filter_var($email, FILTER_SANITIZE_EMAIL);
-// Store the password as plain-text (not recommended)
 $password = $conn->real_escape_string($password);
 
 $stmt = $conn->prepare("INSERT INTO users (username, email, password) VALUES (?, ?, ?)");

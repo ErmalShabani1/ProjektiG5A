@@ -5,15 +5,15 @@ if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 
-if (!isset($_SESSION['admin_id'])) {
-    header("Location: dashboard.php");
+if (!isset($_SESSION['username']) || $_SESSION['role'] !== 'admin') {
+    header("Location: login.php");
     exit();
 }
 
 if (isset($_GET['logout'])) {
     session_unset();
     session_destroy();
-    header("Location: login.php");
+    header("Location: dashboard.php");
     exit();
 }
 
@@ -54,7 +54,7 @@ $conn->close();
         <h1>Admin Dashboard</h1>
         <div class="nav-buttons">
             <button id="homeButton"><a href="index.php">Home</a></button>
-            <button id="logoutButton"><a href="dashboard.php?logout=true">Logout</a></button>
+            <button id="logoutButton"><a href="logout.php">Logout</a></button>
         </div>
     </header>
 
