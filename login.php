@@ -2,6 +2,7 @@
 include_once('connect.php');
 
 if (isset($_GET['logout'])) {
+    session_start();
     session_destroy();
     header("Location: login.php");
     exit();
@@ -17,20 +18,26 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['login'])) {
         exit;
     }
 
-    $stmt = $conn->prepare("SELECT id, username, password_hash FROM users WHERE username = ?");
+    $stmt = $conn->prepare("SELECT id, username, password, role FROM users WHERE username = ?");
     $stmt->bind_param("s", $username);
     $stmt->execute();
     $result = $stmt->get_result();
 
     if ($user = $result->fetch_assoc()) {
 
-        if (!empty($user['password_hash'])) {
-            if (password_verify($password, $user['password_hash'])) {
+        if (!empty($user['password'])) {
+            // Directly compare plain-text passwords
+            if ($password === $user['password']) {
+                session_start();
                 $_SESSION['id'] = $user['id'];
                 $_SESSION['username'] = $user['username'];
+                $_SESSION['role'] = $user['role'];
 
-
-                header("Location: index.php");
+                if ($user['role'] === 'admin') {
+                    header("Location: dashboard.php");
+                } else {
+                    header("Location: profile.php");
+                }
                 exit;
             } else {
                 echo "<script>alert('Fjalëkalimi i pasaktë.');</script>";
@@ -58,32 +65,32 @@ $conn->close();
 </head>
 <body>
     <header id="loginheader">
-            <h1 id="T4">Mirë se erdhët!</h1>
-            <h2 id="T5">Ju lutem Log In</h2>
-            <button id="HomeButton"><a href="index.php">Home</a></button>
-            </header>
-            <div class="pjesalogin2">
-            <?php if (isset($_SESSION['username'])): ?>
-                <p>Welcome, <?php echo htmlspecialchars($_SESSION['username']); ?>!</p>
-                <a href="login.php?logout=true">Logout</a>
-            <?php else: ?>
-                <form action="login.php" method="POST" id="logform">
-                    <input type="text" name="username" placeholder="Emri" required id="logintext">
-                    <input type="password" name="password" placeholder="Fjalkalimi" required id="logintext">
-                    <input type="submit" name="login" value="Kyqu" id="loginbutton">
-                    <a href="register.php" type="button" id="SignUp">S'ke llogari? Krijo</a>
-                </form> 
-            <?php endif; ?>
+        <h1 id="T4">Mirë se erdhët!</h1>
+        <h2 id="T5">Ju lutem Log In</h2>
+        <button id="HomeButton"><a href="index.php">Home</a></button>
+    </header>
+    <div class="pjesalogin2">
+        <?php if (isset($_SESSION['username'])): ?>
+            <p>Welcome, <?php echo htmlspecialchars($_SESSION['username']); ?>!</p>
+            <a href="login.php?logout=true">Logout</a>
+        <?php else: ?>
+            <form action="login.php" method="POST" id="logform">
+                <input type="text" name="username" placeholder="Emri" required id="logintext">
+                <input type="password" name="password" placeholder="Fjalkalimi" required id="logintext">
+                <input type="submit" name="login" value="Kyqu" id="loginbutton">
+                <a href="register.php" type="button" id="SignUp">S'ke llogari? Krijo</a>
+            </form> 
+        <?php endif; ?>
 
-            <?php if (!empty($error)): ?>
-                <p class="error"><?php echo htmlspecialchars($error); ?></p>
-            <?php endif; ?>
-        </div>
+        <?php if (!empty($error)): ?>
+            <p class="error"><?php echo htmlspecialchars($error); ?></p>
+        <?php endif; ?>
+    </div>
     <hr>
     <div id="art2">
-    <a href="https://www.facebook.com" target="_blank"> <img src="fblogo.png" alt="img1" id="fblogo"></a>
-   <a href="https://www.instagram.com" target="_blank"> <img src="iglogo.jfif" alt="img2" id="iglogo"></a> 
-   <a href="https://www.linkedin.com" target="_blank"> <img src="lilogo.png" alt="img3" id="lilogo"></a>
+        <a href="https://www.facebook.com" target="_blank"> <img src="fblogo.png" alt="img1" id="fblogo"></a>
+        <a href="https://www.instagram.com" target="_blank"> <img src="iglogo.jfif" alt="img2" id="iglogo"></a>
+        <a href="https://www.linkedin.com" target="_blank"> <img src="lilogo.png" alt="img3" id="lilogo"></a>
     </div>
     <h3 id="T8">Faleminderit</h3>
     <hr>

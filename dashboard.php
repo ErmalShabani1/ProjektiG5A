@@ -6,14 +6,14 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 
 if (!isset($_SESSION['admin_id'])) {
-    header("Location: adminlogin.php");
+    header("Location: dashboard.php");
     exit();
 }
 
 if (isset($_GET['logout'])) {
     session_unset();
     session_destroy();
-    header("Location: adminlogin.php");
+    header("Location: login.php");
     exit();
 }
 

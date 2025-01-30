@@ -1,6 +1,10 @@
 <?php
-include_once('connect.php'); 
+include_once('connect.php');
 
+// Check if a session is already active
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 
 if (!isset($_SESSION['username'])) {
     header("Location: login.php");  
@@ -9,7 +13,6 @@ if (!isset($_SESSION['username'])) {
 
 $id = $_SESSION['id'];
 $username = $_SESSION['username'];
-
 
 $query = "SELECT email FROM users WHERE id = ?";
 $stmt = $conn->prepare($query);
@@ -25,7 +28,6 @@ if ($result->num_rows > 0) {
 $stmt->close();
 $conn->close();
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -52,7 +54,9 @@ $conn->close();
                 <br>
                 <button id="contactButton"><a href="profile.php">Profile</a></button>
                 <br>
-                <button id="contactButton"><a href="adminlogin.php">AdminLogin</a></button>
+                <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
+                    <button id="contactButton"><a href="dashboard.php">Admin Dashboard</a></button>
+                <?php endif; ?>
         </article>
         <article id="art6">
         <div id="lajmi1"><a href="faqja1.php" class="faqet"><img src="image3.jpg" alt="Image1" id="fotolajmi1"><h6 id="titujt">Granit Xhaka nenshkruan me Bayer Leverkusen</h6></a></div>
